@@ -1,0 +1,7 @@
+This paper aims to solve the image exposure and partial occlusion problems of object detection algorithms, which are caused by bad weather in real autonomous driving scenarios. 
+The network adopts a dual-branch architecture, which utilizes a Residual Fusion block (ResFuse) to achieve deep fusion of cross-modal features. A Dual-path Attention mechanism (DualAtt) and an integrated High-Frequency Attention module (HFAtt) were designed to capture key information in feature maps. 
+Additionally, a Lossless Downsampling module (LDown) was designed to achieve lossless downsampling. 
+Simulation results demonstrate that the proposed network achieves a detection speed of 61 frames per second (FPS) and a precision (P) of up to 87.4% on existing autonomous driving detection datasets. 
+Comparative experimental results show that MHF-Net achieves 84.3% on the mAP$_{50}$ evaluation metric. 
+Compared to the baseline model, the number of parameters was reduced by 95% and the computational complexity was reduced by 88%. 
+Compared with other mainstream object detection algorithms, MHF-Net strikes a favorable balance in performance in autonomous driving scenarios.
