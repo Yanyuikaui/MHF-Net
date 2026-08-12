@@ -1,0 +1,50 @@
+from Task_Py import  Reaserch_Filem_Nmae
+from tools.Change import convert_path_2
+import os
+import gc
+import torch
+
+import os
+os.environ.setdefault('CUDA_VISIBLE_DEVICES', '0')  # GPU控制: 0/1/2/3 或 "0,1" 多卡
+
+from ultralytics import YOLOMM
+
+if __name__ == '__main__':
+    
+     
+    Yaml_Nmae = [
+                 'yolo11n-mm-residual-Modify-p3-p4-no-p2-HighFrequencyPerception-CASAB-SPDConv.yaml',
+                 ]
+    File_Name_File = r'E:\paper\Mulit_Mode\MutilModel_3074665794\ultralytics\cfg\models\User_Yaml\Modify_Four' + '\\'
+
+    for i in Yaml_Nmae :
+         try:
+              File_Yaml_Name =  File_Name_File + i
+              File_Name_File1,File_End_Name_Train= Reaserch_Filem_Nmae(File_Yaml_Name,"Train")
+       
+              model = YOLOMM(File_Name_File1)
+              model.train(data='E:/paper/Mulit_Mode/MutilModel_3074665794/User_Date/FLIR-align-3class/data_FLIR.yaml',
+                     epochs=1,batch=8,
+                     scale='n',  # 选择模型 YAML `scales`（n/s/m/l/x）；
+                     # modality='RGB', # 模态消融参数 非必要不得开启（rgb/RGB、x/X token 大小写不敏感，内部统一显示为 RGB/X）
+                     # loss_cls='bce',      # 分类损失类型: bce | focal | efl | qfl (默认: bce)
+                     # loss_box='ciou',     # IoU 损失类型: iou | giou | diou | ciou | siou | eiou | wiou | alphaiou (默认: ciou)
+                     # loss_dfl=True,       # DFL 损失开关: True | False (默认: True)
+                     amp=False,  #启动amp混合精度加速
+                     device='0',
+                     cache=False,
+                     exist_ok=True,
+                     # afss_enabled=True, #启动afss训练采样机制 
+                     project='ResTest',name=File_End_Name_Train)
+         except Exception as e:
+              # 打印错误并跳过
+              print(f"警告: 训练配置文件 {i} 时出错: {e}")
+              # 即使报错也要进入下方的清理流程，故此处不直接 continue
+         finally:
+               # 3. 【核心资源释放】：无论成功还是失败，都必须清理显存
+               if 'model' in locals():
+                     del model
+               gc.collect()
+               if torch.cuda.is_available():
+                     torch.cuda.empty_cache()
+               print(f"已完成/跳过第 {i} 个任务，清理显存完毕。")
