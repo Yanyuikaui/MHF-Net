@@ -1,0 +1,26 @@
+Training method:
+After inputting the user-configured file in Yaml_Nmae=["xxxxxx"] in the train.py file, run the following command in the terminal: python train.py
+
+Testing method:
+After inputting the user-configured file in File_Name_File="xxxxxxx" in the test.py file, run the following command in the terminal: python test.py
+
+Dataset format is as follows:
+image
+  train:
+    xxx.img
+  test:
+    xxx.img
+  val:
+    xxx.img
+  labels:
+    xxx.txt
+
+image_ir
+  train:
+    xxx.img
+  test:
+    xxx.img
+  val:
+    xxx.img
+  labels:
+    xxx.txt
