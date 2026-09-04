@@ -1,0 +1,14 @@
+if __name__ == "__main__" :
+
+
+  File_Name_File = r'best.pt'
+  File_Name_File,File_End_Name_val= Reaserch_Filem_Nmae(File_Name_File,"val")
+
+  model = MSTMM(File_Name_File)
+  model.val(data='data.yaml',
+            split='test',device='0',
+          #   modality='x',模态消融参数 非必要不得开启
+            # coco=True,
+            
+            project='ResTest',
+            name=File_End_Name_val)
