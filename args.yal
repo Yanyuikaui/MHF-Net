@@ -1,6 +1,5 @@
 task: detect
 mode: train
-model: E:\Code\Mulit_Mode\MutilModel_3074665794\ultralytics\cfg\models\mm\User_Yaml\Modify_Four\yolo11n-mm-residual-Modify-p3-p4-no-p2-HighFrequencyPerception-CASAB-SPDConv_2.yaml
 model_scale: n
 data: E:\Code\Mulit_Mode\MutilModel_3074665794\User_Date\M3FD_split\data.yaml
 epochs: 500
@@ -14,7 +13,6 @@ cache: true
 device: '0'
 workers: 8
 project: ResTest
-name: yolo11n-mm-residual-Modify-p3-p4-no-p2-HighFrequencyPerception-CASAB-SPDConv_2.yaml-Train
 exist_ok: true
 pretrained: true
 optimizer: auto
