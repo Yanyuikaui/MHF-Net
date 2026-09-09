@@ -1,6 +1,6 @@
-下面给出 按照图片名为排序的标签，此标签对应train、test和val的图片顺序。
+下面给出 按图像名称格式划分的具体数据分布，此标签对应train、test和val的图片顺序。
 
-The following presents the labels sorted by the names of the images. This label corresponds to the image sequence of train, test and val.
+ To provide full transparency on how these sets were constructed, we have provided the corresponding cloud drive link for the dataset, along with the specific data split formatted by image names.
 
 
 train:
